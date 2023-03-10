@@ -5,12 +5,22 @@ import java.util.Scanner;
 public class Exercise4StringSearch {
     /**
      * This method should return an array of strings that contain the substring.
-     * @param input
+     * @param input the string to search in
      * @param substring what to search for
-     * @return
+     * @return an array of strings that contain the substring
      */
     public static String[] searchSubstrings(String input, String substring) {
-        return null;
+        String[] result = new String[0];
+        String[] words = input.split(",");
+        for (String word : words) {
+            if (word.contains(substring)) {
+                String[] temp = new String[result.length + 1];
+                System.arraycopy(result, 0, temp, 0, result.length);
+                temp[temp.length - 1] = word;
+                result = temp;
+            }
+        }
+        return result;
     }
 
     public static String readFromConsoleInt() {
