@@ -7,7 +7,7 @@ public class Exercise5Test {
     @Test
     public void testDisplayProducts() {
         Exercise5 vm = new Exercise5();
-        String expectedOutput = "1. Coke\n2. Pepsi\n3. Sprite\n4. Fanta\n";
+        String expectedOutput = "{1=Coke, 2=Pepsi, 3=Sprite, 4=Fanta}";
         assertEquals(expectedOutput, vm.displayProducts());
     }
 

@@ -43,20 +43,14 @@
         </dependency>
 
         <!-- Unit testing is mandatory -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit-version}</version>
-            <!-- only to be used during test phase -->
-            <!-- will not be included in executable jar -->
-            <scope>test</scope>
-        </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.13.1</version>
             <scope>compile</scope>
         </dependency>
+
 
     </dependencies>
 

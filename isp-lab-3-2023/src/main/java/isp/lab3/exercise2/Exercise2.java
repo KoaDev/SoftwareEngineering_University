@@ -1,5 +1,6 @@
 package isp.lab3.exercise2;
 
+// no test class for this exercise
 public class Exercise2 {
     private int length;
     private int width;

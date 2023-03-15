@@ -2,7 +2,6 @@ package isp.lab3.exercise5;
 
 import java.util.HashMap;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class Exercise5 {
@@ -14,14 +13,16 @@ public class Exercise5 {
         this.products = new HashMap<Integer, String>();
         this.products.put(1, "Coke");
         this.products.put(2, "Pepsi");
-        this.products.put(3, "Fanta");
+        this.products.put(3, "Sprite");
+        this.products.put(4, "Fanta");
     }
 
-    public void displayProducts() {
+    public String displayProducts() {
         System.out.println("Available products:");
         for (Map.Entry<Integer, String> entry : this.products.entrySet()) {
             System.out.println(entry.getKey() + " - " + entry.getValue());
         }
+        return this.products.toString();
     }
 
     public void insertCoin(int value) {
@@ -40,8 +41,9 @@ public class Exercise5 {
         }
     }
 
-    public void displayCredit() {
+    public int displayCredit() {
         System.out.println("Credit: " + this.credit);
+        return this.credit;
     }
 
     public void userMenu() {
