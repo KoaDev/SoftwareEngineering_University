@@ -1,12 +1,11 @@
 package aut.isp.lab4.exercise4;
 
+import junit.framework.TestCase;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.Assert.assertFalse;
 
 public class Exercise4Test {
     @Test
@@ -24,7 +23,7 @@ public class Exercise4Test {
 
         // Test that fire alarm is not started when no sensor has temperature > 50
         controlUnit.controlStep();
-        assertFalse(fireAlarmSensor.isFireAlarm());
+        Assert.assertFalse(fireAlarmSensor.isFireAlarm());
 
         // Test that fire alarm is started when all sensors have temperature > 50
         temperatureSensor1.setTemperature(60);
@@ -36,6 +35,6 @@ public class Exercise4Test {
         temperatureSensor1.setTemperature(60);
         temperatureSensor2.setTemperature(40);
         controlUnit.controlStep();
-        assertFalse(fireAlarmSensor.isFireAlarm());
+        Assert.assertFalse(fireAlarmSensor.isFireAlarm());
     }
 }

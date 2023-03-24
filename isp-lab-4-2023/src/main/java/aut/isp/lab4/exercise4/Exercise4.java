@@ -15,20 +15,18 @@ public class Exercise4 {
         sensors.add(temperatureSensor2);
         sensors.add(fireAlarmSensor);
         ControlUnit controlUnit = new ControlUnit(sensors);
-        House house = new House(controlUnit);
-        house.controlStep();
+        controlUnit.controlStep();
+        temperatureSensor2.setTemperature(60);
+        controlUnit.controlStep();
     }
 }
 
-interface Sensor {
-    int getId();
-}
-
-class TemperatureSensor implements Sensor {
+// Sensor class
+abstract class Sensor {
     private final int id;
-    private int temperature;
+    private double temperature;
 
-    public TemperatureSensor(int id) {
+    public Sensor(int id) {
         this.id = id;
     }
 
@@ -36,80 +34,72 @@ class TemperatureSensor implements Sensor {
         return id;
     }
 
-    public int getTemperature() {
+    public double getTemperature() {
         return temperature;
     }
 
-    public void setTemperature(int temperature) {
+    public void setTemperature(double temperature) {
         this.temperature = temperature;
     }
+
+    public abstract boolean isFireAlarm();
 }
 
-class FireAlarmSensor implements Sensor {
-    private final int id;
-    private boolean fireAlarm;
+// TemperatureSensor class
+class TemperatureSensor extends Sensor {
+    public TemperatureSensor(int id) {
+        super(id);
+    }
+
+    @Override
+    public boolean isFireAlarm() {
+        return getTemperature() > 50;
+    }
+}
+
+// FireAlarmSensor class
+class FireAlarmSensor extends Sensor {
+    private boolean isFireAlarm;
 
     public FireAlarmSensor(int id) {
-        this.id = id;
+        super(id);
     }
 
-    public int getId() {
-        return id;
-    }
-
+    @Override
     public boolean isFireAlarm() {
-        return fireAlarm;
+        return isFireAlarm;
     }
 
-    public void setFireAlarm(boolean fireAlarm) {
-        this.fireAlarm = fireAlarm;
+    public void setFireAlarm(boolean isFireAlarm) {
+        this.isFireAlarm = isFireAlarm;
     }
 }
 
+// ControlUnit class
 class ControlUnit {
     private final List<Sensor> sensors;
 
     public ControlUnit(List<Sensor> sensors) {
         this.sensors = sensors;
     }
+
     public void controlStep() {
-        boolean fireAlarmStarted = false;
+        boolean isFireAlarm = true;
+
         for (Sensor sensor : sensors) {
-            if (sensor instanceof TemperatureSensor) {
-                TemperatureSensor temperatureSensor = (TemperatureSensor) sensor;
-                if (temperatureSensor.getTemperature() > 50) {
-                    fireAlarmStarted = true;
-                    break;
-                }
+            if (!(sensor instanceof FireAlarmSensor) && !sensor.isFireAlarm()) {
+                isFireAlarm = false;
+                break;
             }
         }
-        FireAlarmSensor fireAlarmSensor = getFireAlarmSensor();
-        fireAlarmSensor.setFireAlarm(fireAlarmStarted);
-        if (fireAlarmStarted) {
+
+        FireAlarmSensor fireAlarmSensor = (FireAlarmSensor) sensors.get(sensors.size() - 1);
+        fireAlarmSensor.setFireAlarm(isFireAlarm);
+
+        if (isFireAlarm) {
             System.out.println("Fire alarm started");
         } else {
             System.out.println("Fire alarm not started");
         }
-    }
-
-    private FireAlarmSensor getFireAlarmSensor() {
-        for (Sensor sensor : sensors) {
-            if (sensor instanceof FireAlarmSensor) {
-                return (FireAlarmSensor) sensor;
-            }
-        }
-        throw new IllegalStateException("No fire alarm sensor found");
-    }
-}
-
-class House {
-    private final ControlUnit controlUnit;
-
-    public House(ControlUnit controlUnit) {
-        this.controlUnit = controlUnit;
-    }
-
-    public void controlStep() {
-        controlUnit.controlStep();
     }
 }
