@@ -1,35 +1,43 @@
 package aut.isp.lab4.exercise3;
 
-public class AquariumController {
-    private final FishFeederController feeder;
-    private final String manufacturer;
-    private final String model;
-    private int currentTime;
-    private final int feedingTime;
+import aut.isp.lab4.exercise2.FishFeeder;
 
-    public AquariumController(FishFeederController feeder, String manufacturer, String model, int feedingTime) {
-        this.feeder = feeder;
+public class AquariumController {
+    private String manufacturer;
+    private String model;
+    private float currentTime;
+    private float feedingTime;
+    private FishFeeder fishFeeder;
+
+    public AquariumController(String manufacturer, String model, float currentTime, float feedingTime, FishFeeder fishFeeder) {
         this.manufacturer = manufacturer;
         this.model = model;
-        this.currentTime = 0;
+        this.currentTime = currentTime;
         this.feedingTime = feedingTime;
+        this.fishFeeder = fishFeeder;
     }
 
-    public void setCurrentTime(int currentTime) {
+    public void setCurrentTime(float currentTime) {
         this.currentTime = currentTime;
         if (currentTime == feedingTime) {
-            feeder.feed();
+            fishFeeder.feed();
         }
     }
 
     @Override
     public String toString() {
-        return "AquariumController{" +
-                "feeder=" + feeder +
-                ", manufacturer='" + manufacturer + '\'' +
-                ", model='" + model + '\'' +
-                ", currentTime=" + currentTime +
-                ", feedingTime=" + feedingTime +
-                '}';
+        return "AquariumController [manufacturer=" + manufacturer + ", model=" + model + ", currentTime=" + currentTime + "]";
+    }
+
+    public static void main(String[] args) {
+        FishFeeder fishFeeder = new FishFeeder("FishCorp", "FishFeeder 1000");
+        AquariumController aquariumController = new AquariumController("AquaCorp", "AquaMaster 3000", 12.0f, 14.5f, fishFeeder);
+
+        System.out.println(aquariumController);
+        System.out.println(fishFeeder);
+
+        aquariumController.setCurrentTime(14.5f);
+        System.out.println(aquariumController);
+        System.out.println(fishFeeder);
     }
 }

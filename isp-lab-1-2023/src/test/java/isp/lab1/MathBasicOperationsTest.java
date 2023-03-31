@@ -4,9 +4,6 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-/**
- * @author mihai.hulea
- */
 public class MathBasicOperationsTest {
 
     @Test

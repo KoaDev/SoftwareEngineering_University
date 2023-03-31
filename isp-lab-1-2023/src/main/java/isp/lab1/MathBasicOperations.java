@@ -3,9 +3,7 @@ package isp.lab1;
 
 import java.util.logging.Logger;
 
-/**
- * @author mihai.hulea
- */
+
 public class MathBasicOperations {
 
     public static Logger LOG = Logger.getLogger( MathBasicOperations.class.getName() );
