@@ -2,12 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>isp-lab-5</groupId>
-    <artifactId>isp-lab-5</artifactId>
+    <groupId>isp-lab</groupId>
+    <artifactId>laborator4isp</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>IspLab5</name>
+    <name>Laborator 4</name>
 
     <description>Example of super pom for Java application development for software engineering classes.</description>
 
@@ -26,7 +26,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- class that has the main method -->
-        <mainClass>isp.lab5.Example</mainClass>
+        <mainClass>isp.lab4.Example</mainClass>
         <!-- name appended to standard jar name to indicate shaded/executable version -->
         <shadedClassifierName>executable</shadedClassifierName>
         <junit-version>4.12</junit-version>
