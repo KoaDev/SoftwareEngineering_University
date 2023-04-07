@@ -1,7 +1,5 @@
 package isp.lab4.exercise2;
 
-import isp.lab4.exercise2.Chargeable;
-
 public class Exercise2 {
 
     public static void main(String[] args) {
