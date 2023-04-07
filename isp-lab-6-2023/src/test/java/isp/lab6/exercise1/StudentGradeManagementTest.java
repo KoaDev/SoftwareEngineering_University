@@ -2,6 +2,7 @@ package isp.lab6.exercise1;
 
 import junit.framework.TestCase;
 
+//add test junit
 public class StudentGradeManagementTest {
     public static void main(String[] args) {
         // Test: Add a student

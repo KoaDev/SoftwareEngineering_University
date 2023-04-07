@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StudentGradeManagement {
-    private List<Student> students;
+    private final List<Student> students;
 
     public StudentGradeManagement() {
         this.students = new ArrayList<>();
@@ -26,6 +26,8 @@ public class StudentGradeManagement {
         }
         return null;
     }
+
+    //update student all info
 
     public void displayStudents() {
         for (Student student : students) {

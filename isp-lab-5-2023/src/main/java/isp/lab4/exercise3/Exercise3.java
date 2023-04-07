@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Exercise3 {
-
     public static void main(String[] args) {
         List<Sensor> sensors = new ArrayList<>();
 
@@ -76,7 +75,7 @@ abstract class Sensor {
 }
 
 class TemperatureSensor extends Sensor {
-    private double temperature;
+    private final double temperature;
 
     public TemperatureSensor(String installLocation, String name, double temperature) {
         super(installLocation, name);
@@ -90,7 +89,7 @@ class TemperatureSensor extends Sensor {
 }
 
 class PressureSensor extends Sensor {
-    private double pressure;
+    private final double pressure;
 
     public PressureSensor(String installLocation, String name, double pressure) {
         super(installLocation, name);
@@ -104,7 +103,7 @@ class PressureSensor extends Sensor {
 }
 
 class MonitoringService {
-    private List<Sensor> sensors;
+    private final List<Sensor> sensors;
 
     public MonitoringService(List<Sensor> sensors) {
         this.sensors = sensors;

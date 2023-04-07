@@ -1,62 +1,33 @@
 package isp.lab6.exercise2;
 
-public class Vehicle {
-    private String vin;
-    private String licensePlate;
-    private String make;
-    private String model;
-    private int year;
+import java.util.Objects;
 
-    public Vehicle(String vin, String licensePlate, String make, String model, int year) {
+public class Vehicle {
+    private final String vin;
+
+    public Vehicle(String vin) {
         this.vin = vin;
-        this.licensePlate = licensePlate;
-        this.make = make;
-        this.model = model;
-        this.year = year;
     }
 
     public String getVin() {
         return vin;
     }
 
-    public String getLicensePlate() {
-        return licensePlate;
-    }
-
-    public String getMake() {
-        return make;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
     @Override
     public boolean equals(Object obj) {
-        if (obj == this) {
-            return true;
-        }
-
-        if (obj == null || obj.getClass() != this.getClass()) {
-            return false;
-        }
-
-        Vehicle other = (Vehicle) obj;
-        return vin.equals(other.vin);
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Vehicle vehicle = (Vehicle) obj;
+        return Objects.equals(vin, vehicle.vin);
     }
 
     @Override
     public int hashCode() {
-        return vin.hashCode();
+        return Objects.hash(vin);
     }
 
     @Override
     public String toString() {
-        return "VIN: " + vin + ", License Plate: " + licensePlate + ", Make: " + make + ", Model: " + model + ", Year: " + year;
+        return "VIN: " + vin;
     }
 }
-

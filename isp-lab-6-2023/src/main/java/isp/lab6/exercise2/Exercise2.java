@@ -22,16 +22,8 @@ public class Exercise2 {
                 case 1: {
                     System.out.print("Enter VIN: ");
                     String vin = scanner.next();
-                    System.out.print("Enter License Plate: ");
-                    String licensePlate = scanner.next();
-                    System.out.print("Enter Make: ");
-                    String make = scanner.next();
-                    System.out.print("Enter Model: ");
-                    String model = scanner.next();
-                    System.out.print("Enter Year: ");
-                    int year = scanner.nextInt();
 
-                    Vehicle vehicle = new Vehicle(vin, licensePlate, make, model, year);
+                    Vehicle vehicle = new Vehicle(vin);
                     if (registry.addVehicle(vehicle)) {
                         System.out.println("Vehicle added successfully.");
                     } else {

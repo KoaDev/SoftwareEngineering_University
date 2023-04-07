@@ -1,14 +1,12 @@
 package isp.lab4.exercise1;
 
-import sun.util.resources.LocaleData;
-
 import java.time.LocalDateTime;
 
-// enum class for ProductCategory
+
 enum ProductCategory {
     ELECTRONICS, FASHION, HOME_AND_GARDEN, BEAUTY, TOYS
 }
-// Address class
+
 class Address {
     private String street;
     private String city;
@@ -50,7 +48,7 @@ class Address {
         return customers;
     }
 }
-// Product class
+
 class Product {
     private String productId;
     private String name;
@@ -128,7 +126,7 @@ class Product {
         return orders;
     }
 }
-// Order class
+
 class Order {
     private String orderId;
     private final LocalDateTime date;
@@ -192,7 +190,7 @@ class Order {
         return customers;
     }
 }
-// Customer class
+
 class Customer {
     private String customerId;
     private String name;

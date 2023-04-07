@@ -1,7 +1,6 @@
 package isp.lab4.exercise2;
 
 public class Exercise2 {
-
     public static void main(String[] args) {
         // Create a laptop, a smartphone and a smartwatch
         Laptop laptop = new Laptop();
@@ -9,7 +8,7 @@ public class Exercise2 {
         SmartWatch smartWatch = new SmartWatch();
 
         // Charge the laptop for 30 minutes
-        laptop.charge(30);
+        laptop.charge(10);
 
         // Charge the smartphone for 60 minutes
         smartPhone.charge(60);
@@ -28,7 +27,6 @@ public class Exercise2 {
     }
 }
 
-// Define the Laptop class
 class Laptop implements Chargeable {
     private int batteryLevel;
 
@@ -52,7 +50,6 @@ class Laptop implements Chargeable {
     }
 }
 
-// Define the SmartPhone class
 class SmartPhone implements Chargeable {
     private int batteryLevel;
 
@@ -76,7 +73,6 @@ class SmartPhone implements Chargeable {
     }
 }
 
-// Define the SmartWatch class
 class SmartWatch implements Chargeable {
     private int batteryLevel;
 
