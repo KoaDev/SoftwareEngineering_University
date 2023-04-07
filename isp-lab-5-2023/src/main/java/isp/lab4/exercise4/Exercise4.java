@@ -105,11 +105,10 @@ class Ticket {
     private final Event event;
     private boolean isValid;
 
-    //add validation ticket.
     public Ticket(int id, Event event) {
         this.id = id;
         this.event = event;
-        this.isValid = true;
+        this.isValid = false;
     }
 
     public int getId() {
@@ -124,8 +123,8 @@ class Ticket {
         return isValid;
     }
 
-    public void setValid(boolean valid) {
-        isValid = valid;
+    public void validate(boolean isValid) {
+        this.isValid = isValid;
     }
 }
 
@@ -161,12 +160,7 @@ class UserApp {
 
 class OrganizerApp {
     public static void checkIn(Ticket ticket) {
-        TicketManager.validateTicket(ticket);
-        if (ticket.isValid()) {
-            ticket.setValid(false);
-            System.out.println("Ticket check-in successful.");
-        } else {
-            System.out.println("Ticket check-in failed.");
-        }
+        ticket.validate(true); // set the ticket as valid
+        System.out.println("Ticket check-in successful.");
     }
 }
