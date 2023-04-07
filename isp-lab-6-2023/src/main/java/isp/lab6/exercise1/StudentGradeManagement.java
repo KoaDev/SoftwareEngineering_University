@@ -10,12 +10,14 @@ public class StudentGradeManagement {
         this.students = new ArrayList<>();
     }
 
-    public void addStudent(Student student) {
+    public boolean addStudent(Student student) {
         students.add(student);
+        return true;
     }
 
-    public void removeStudent(int id) {
+    public boolean removeStudent(int id) {
         students.removeIf(student -> student.getId() == id);
+        return true;
     }
 
     public Student getStudent(int id) {

@@ -14,8 +14,8 @@ public class VehicleRegistryTest {
     @BeforeEach
     public void setUp() {
         registry = new VehicleRegistry();
-        vehicle1 = new Vehicle("1ABC123", "ABC123", "Toyota", "Camry", 2010);
-        vehicle2 = new Vehicle("1ABC123", "ABC123", "Toyota", "Camry", 2010);
+        vehicle1 = new Vehicle("1ABC123");
+        vehicle2 = new Vehicle("1ABC123");
     }
 
     @Test

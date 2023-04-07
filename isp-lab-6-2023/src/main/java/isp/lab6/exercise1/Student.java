@@ -29,6 +29,10 @@ public class Student {
         this.id = id;
     }
 
+    public int getGrade(String subject) {
+        return grades.get(subject);
+    }
+
     public HashMap<String, Integer> getGrades() {
         return grades;
     }
