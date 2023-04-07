@@ -1,7 +1,13 @@
 package isp.lab4.exercise1;
 
-// Customer class
+import sun.util.resources.LocaleData;
 
+import java.time.LocalDateTime;
+
+// enum class for ProductCategory
+enum ProductCategory {
+    ELECTRONICS, FASHION, HOME_AND_GARDEN, BEAUTY, TOYS
+}
 // Address class
 class Address {
     private String street;
@@ -44,14 +50,14 @@ class Address {
         return customers;
     }
 }
-
+// Product class
 class Product {
-    private int productId;
+    private String productId;
     private String name;
     private double price;
-    private String productCategory;
+    private ProductCategory productCategory;
 
-    public Product(int productId, String name, double price, String productCategory) {
+    public Product(String productId, String name, double price, ProductCategory productCategory) {
         this.productId = productId;
         this.name = name;
         this.price = price;
@@ -60,11 +66,11 @@ class Product {
 
     // getters and setters for all attributes
 
-    public int getProductId() {
+    public String getProductId() {
         return productId;
     }
 
-    public void setProductId(int productId) {
+    public void setProductId(String productId) {
         this.productId = productId;
     }
 
@@ -84,11 +90,11 @@ class Product {
         this.price = price;
     }
 
-    public String getProductCategory() {
+    public ProductCategory getProductCategory() {
         return productCategory;
     }
 
-    public void setProductCategory(String productCategory) {
+    public void setProductCategory(ProductCategory productCategory) {
         this.productCategory = productCategory;
     }
 
@@ -122,14 +128,13 @@ class Product {
         return orders;
     }
 }
-
 // Order class
 class Order {
-    private int orderId;
-    private String date;
+    private String orderId;
+    private final LocalDateTime date;
     private double totalPrice;
 
-    public Order(int orderId, String date, double totalPrice) {
+    public Order(String orderId, LocalDateTime date, double totalPrice) {
         this.orderId = orderId;
         this.date = date;
         this.totalPrice = totalPrice;
@@ -137,20 +142,16 @@ class Order {
 
     // getters and setters for all attributes
 
-    public int getOrderId()
+    public String getOrderId()
     {
         return orderId;
     }
-    public void setOrderId(int orderId) {
+    public void setOrderId(String orderId) {
         this.orderId = orderId;
     }
 
-    public String getDate() {
+    public LocalDateTime getDate() {
         return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
     }
 
     public double getTotalPrice() {
@@ -191,13 +192,14 @@ class Order {
         return customers;
     }
 }
+// Customer class
 class Customer {
-    private int customerId;
+    private String customerId;
     private String name;
     private String phone;
     private Address address;
 
-    public Customer(int customerId, String name, String phone, Address address) {
+    public Customer(String customerId, String name, String phone, Address address) {
         this.customerId = customerId;
         this.name = name;
         this.phone = phone;
@@ -206,11 +208,11 @@ class Customer {
 
     // getters and setters for all attributes
 
-    public int getCustomerId() {
+    public String getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(int customerId) {
+    public void setCustomerId(String customerId) {
         this.customerId = customerId;
     }
 
@@ -276,16 +278,16 @@ public class Exercise1 {
         Address address2 = new Address("456 Oak Ave", "Somecity");
 
         // create some customers
-        Customer customer1 = new Customer(1, "John Doe", "555-1234", address1);
-        Customer customer2 = new Customer(2, "Jane Smith", "555-5678", address2);
+        Customer customer1 = new Customer("1", "John Doe", "555-1234", address1);
+        Customer customer2 = new Customer("2", "Jane Smith", "555-5678", address2);
 
         // create some products
-        Product product1 = new Product(1, "Widget", 9.99, "Hardware");
-        Product product2 = new Product(2, "Gadget", 19.99, "Software");
+        Product product1 = new Product("1", "Widget", 9.99, ProductCategory.ELECTRONICS);
+        Product product2 = new Product("2", "Gadget", 19.99, ProductCategory.ELECTRONICS);
 
         // create some orders
-        Order order1 = new Order(1, "2023-04-06", 29.98);
-        Order order2 = new Order(2, "2023-04-07", 39.98);
+        Order order1 = new Order("1", LocalDateTime.now(), 29.98);
+        Order order2 = new Order("2", LocalDateTime.now(), 39.98);
 
         // add associations between objects
         customer1.addOrder(order1);
@@ -299,6 +301,7 @@ public class Exercise1 {
 
         order2.addCustomer(customer2);
         order2.addProduct(product2);
+
     }
 }
 
