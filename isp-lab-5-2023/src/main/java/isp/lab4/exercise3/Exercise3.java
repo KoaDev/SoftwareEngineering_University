@@ -19,7 +19,7 @@ public class Exercise3 {
         sensors.add(pressureSensor1);
         sensors.add(pressureSensor2);
 
-        // Create a monitoring service and add the sensors to it
+        // Create a monitoring service with the sensors
         MonitoringService monitoringService = new MonitoringService(sensors);
 
         // Print the average temperature of temperature sensors
@@ -30,13 +30,11 @@ public class Exercise3 {
         double avgValue = monitoringService.getAverageAllSensors();
         System.out.println("Average value of all sensors: " + avgValue);
     }
-
 }
 
 abstract class Sensor {
     private String installLocation;
     private String name;
-    private List<Sensor> sensors = new ArrayList<>();
 
     public Sensor(String installLocation, String name) {
         this.installLocation = installLocation;
@@ -57,18 +55,6 @@ abstract class Sensor {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public List<Sensor> getSensors() {
-        return sensors;
-    }
-
-    public void setSensors(List<Sensor> sensors) {
-        this.sensors = sensors;
-    }
-
-    public void addSensor(Sensor sensor) {
-        this.sensors.add(sensor);
     }
 
     public abstract double getValue();
