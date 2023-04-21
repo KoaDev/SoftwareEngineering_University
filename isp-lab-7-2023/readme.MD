@@ -21,10 +21,47 @@ The Admin should be able to add and to remove tenants, and to view the acess log
 
 ## Exercise 2 - Use case diagram
 
-Create the _UML use case_ diagram for the Safe Home Access application. 
-
+Create the _UML use case_ diagram for the Safe Home Access application.
+![Exercise 2 image](docs/ex2.png)
 
 ## Exercise 3 - Sequence diagram(s)
+
+Text sequence diagram(s) for the Safe Home Access application.
+
+Entities:
+
+Tenant
+System Administrator
+DoorLockController
+Door
+AccessLog
+Sequence diagram for Tenant entering PIN:
+
+1. Tenant -> DoorLockController: enterPin(pin)
+2. DoorLockController -> Door: getStatus()
+3. DoorLockController -> Door: changeStatus()
+4. Door -> Door: updateStatus()
+5. DoorLockController -> AccessLog: addLogEntry(entry)
+6. DoorLockController <- Door: return doorStatus
+7. Tenant <- DoorLockController: return doorStatus
+
+Sequence diagram for System Administrator adding a tenant:
+
+1. System Administrator -> DoorLockController: addTenant(pin, name)
+2. DoorLockController -> AccessLog: addLogEntry(entry)
+3. System Administrator <- DoorLockController: return success/error
+
+Sequence diagram for System Administrator removing a tenant:
+
+1. System Administrator -> DoorLockController: removeTenant(name)
+2. DoorLockController -> AccessLog: addLogEntry(entry)
+3. System Administrator <- DoorLockController: return success/error
+
+Sequence diagram for System Administrator viewing access log:
+
+1. System Administrator -> DoorLockController: getAccessLog()
+2. DoorLockController -> AccessLog: getLogEntries()
+3. System Administrator <- DoorLockController: return accessLog
 
 Create the _UML sequence_ diagram for the Safe Home Access application.
 The entities that should appear in the diagram(s) are:
