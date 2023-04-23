@@ -26,10 +26,6 @@ public class Route {
         return waypoints;
     }
 
-    public void setWaypoints(List<Waypoint> waypoints) {
-        this.waypoints = waypoints;
-    }
-
     public void addWaypoint(Waypoint waypoint) {
         waypoints.add(waypoint);
     }
@@ -49,14 +45,4 @@ public class Route {
         return totalDistance;
     }
 
-
-    public void removeWaypoint(Waypoint waypoint) {
-        waypoints.remove(waypoint);
-    }
-
-    public void removeWaypoint(int index) {
-        if (index >= 0 && index < waypoints.size()) {
-            waypoints.remove(index);
-        }
-    }
 }
