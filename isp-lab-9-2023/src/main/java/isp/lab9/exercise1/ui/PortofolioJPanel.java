@@ -7,14 +7,9 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Map;
 
-/**
- *  todo: implement portfolio panel; for each owned stock add symbol, quantity, price per unit, total price of the position
- *  it should look similar to the 'Market' panel
- */
 public class PortofolioJPanel extends JPanel {
     private JTable portfolioTable;
-    private JScrollPane scrollPane;
-    private StockMarketJFrame parentFrame;
+    private final StockMarketJFrame parentFrame;
     private JPanel bottomPanel;
 
 
@@ -29,7 +24,7 @@ public class PortofolioJPanel extends JPanel {
         String[] columns = {"Symbol", "Quantity", "Price Per Unit", "Total Price"};
         Object[][] data = {};
         portfolioTable = new JTable(data, columns);
-        scrollPane = new JScrollPane(portfolioTable);
+        JScrollPane scrollPane = new JScrollPane(portfolioTable);
 
         add(scrollPane, BorderLayout.CENTER);
 
