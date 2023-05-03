@@ -9,7 +9,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class BuyJPanel extends JPanel {
-    private StockMarketJFrame mainFrame;
+    private final StockMarketJFrame mainFrame;
+
+    private JTextField availableFundsTextField;
 
     public BuyJPanel(StockMarketJFrame mainFrame) {
         this.mainFrame = mainFrame;
@@ -23,7 +25,7 @@ public class BuyJPanel extends JPanel {
         buyPanel.setLayout(new GridLayout(10, 2));
 
         JLabel availableFundsLabel = new JLabel("Available funds:");
-        JTextField availableFundsTextField = new JTextField(mainFrame.getPortfolio().getCash().toPlainString() + " $");
+        availableFundsTextField = new JTextField(mainFrame.getPortfolio().getCash().toPlainString() + " $");
         availableFundsTextField.setEditable(false);
 
         JLabel symbolLabel = new JLabel("Symbol:");
@@ -40,6 +42,7 @@ public class BuyJPanel extends JPanel {
         JButton buyButton = new JButton("Buy");
 
         buyButton.addActionListener(e -> {
+
             try {
                 String symbol = (String) symbolComboBox.getSelectedItem();
                 int quantity = Integer.parseInt(quantityTextField.getText());
@@ -54,13 +57,14 @@ public class BuyJPanel extends JPanel {
                 } else {
                     mainFrame.getPortfolio().buyStock(symbol, quantity, totalCost);
                     availableFundsTextField.setText(mainFrame.getPortfolio().getCash().toPlainString() + " $");
+
+                    mainFrame.getSellJPanel().refreshData();
+                    mainFrame.getPortfolioJPanel().refreshData();
+
                     JOptionPane.showMessageDialog(this,
                             "Stock purchased successfully!",
                             "Success",
                             JOptionPane.INFORMATION_MESSAGE);
-                    mainFrame.getPortfolioJPanel().refreshData();
-
-
                 }
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(this,
@@ -103,6 +107,10 @@ public class BuyJPanel extends JPanel {
         add(new JPanel()); // empty cell in the grid
         add(new JPanel()); // empty cell in the grid
 
+    }
+
+    public void refreshData() {
+        availableFundsTextField.setText(mainFrame.getPortfolio().getCash().toPlainString() + " $");
     }
 
     /**

@@ -34,4 +34,18 @@ public class UserPortfolio {
         }
     }
 
+    public void sellStock(String symbol, int quantity, BigDecimal totalCost) {
+        int sharesOwned = shares.getOrDefault(symbol, 0);
+        if (quantity > sharesOwned) {
+            throw new IllegalArgumentException("Not enough shares owned");
+        } else {
+            shares.put(symbol, sharesOwned - quantity);
+            cash = cash.add(totalCost);
+        }
+    }
+
+    public Map<String, Integer> getShares() {
+        return shares;
+    }
+
 }

@@ -50,8 +50,7 @@ public class StockMarketJFrame extends JFrame {
         tabs.addTab("Market", new MarketJPanel(this));
         tabs.addTab("UserPortfolio", new PortofolioJPanel(this));
         tabs.addTab("Buy", new BuyJPanel(this));
-        tabs.addTab("Sell", new SellJPanel());
-
+        tabs.addTab("Sell", new SellJPanel(this));
         this.add(tabs);
     }
 
@@ -65,5 +64,13 @@ public class StockMarketJFrame extends JFrame {
 
     public PortofolioJPanel getPortfolioJPanel() {
         return (PortofolioJPanel) ((JTabbedPane) getContentPane().getComponent(0)).getComponentAt(1);
+    }
+
+    public SellJPanel getSellJPanel() {
+        return (SellJPanel) ((JTabbedPane) getContentPane().getComponent(0)).getComponentAt(3);
+    }
+
+    public BuyJPanel getBuyJPanel() {
+        return (BuyJPanel) ((JTabbedPane) getContentPane().getComponent(0)).getComponentAt(2);
     }
 }

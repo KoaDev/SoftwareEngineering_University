@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 
 public class MarketJPanel extends JPanel {
 
-    private StockMarketJFrame frame;
+    private final StockMarketJFrame frame;
 
     public MarketJPanel(StockMarketJFrame frame){
         this.frame = frame;
@@ -22,7 +22,7 @@ public class MarketJPanel extends JPanel {
         JScrollPane marketScrollablePane = new JScrollPane(jTableMarket);
 
         JButton refreshButton = new JButton("Refresh");
-        refreshButton.addActionListener(evt -> buttonRefreshActionPerformed(evt));
+        refreshButton.addActionListener(this::buttonRefreshActionPerformed);
 
         add(marketScrollablePane);
         add(refreshButton);

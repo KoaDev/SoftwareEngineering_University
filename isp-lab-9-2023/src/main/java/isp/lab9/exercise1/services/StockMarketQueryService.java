@@ -16,13 +16,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Uses https://financequotes-api.com/ (https://github.com/sstrickx/yahoofinance-api) SDK for getting stock financial data.
+ * Uses <a href="https://financequotes-api.com/">...</a> (<a href="https://github.com/sstrickx/yahoofinance-api">...</a>) SDK for getting stock financial data.
  *
  * @author mihai.hulea
  */
 public class StockMarketQueryService extends AbstractTableModel {
-    private String[] columns = new String[]{"Name", "Symbol", "Price", "Currency", "Change", "Exchange"};
-    private String[] symbols = new String[]{"INTC", "BABA", "TSLA", "AIR.PA", "MSFT", "AAPL",
+    private final String[] columns = new String[]{"Name", "Symbol", "Price", "Currency", "Change", "Exchange"};
+    private final String[] symbols = new String[]{"INTC", "BABA", "TSLA", "AIR.PA", "MSFT", "AAPL",
             "OHI", "MPW", "MMM", "SWK", "PFE", "ABB", "JNJ", "MDT", "RIO", "EPD", "ET", "USA",
             "BHP", "BP", "BCE", "VZ", "GOOG"};
     private Map<String, Stock> stocks = new HashMap<String, Stock>();
@@ -37,7 +37,7 @@ public class StockMarketQueryService extends AbstractTableModel {
     public void refreshMarketData() throws IOException {
         stocks = YahooFinance.get(symbols);
         items = new ArrayList<>();
-        stocks.values().stream().forEach(s -> items.add(new StockItem(s)));
+        stocks.values().forEach(s -> items.add(new StockItem(s)));
         this.fireTableDataChanged();
     }
 
@@ -56,7 +56,6 @@ public class StockMarketQueryService extends AbstractTableModel {
     /**
      * Used to populate drop down button (Combo Box).
      *
-     * @return
      */
     public String[] getSymbols() {
         return symbols;

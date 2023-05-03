@@ -63,18 +63,16 @@ public class PortofolioJPanel extends JPanel {
             bottomPanel.revalidate();
 
             portfolioTable.setModel(new DefaultTableModel(data, columns));
+
+
+
         } catch (IOException ex) {
-            System.out.println("Error: " + ex.getMessage());
             JOptionPane.showMessageDialog(this,
                     ex.getMessage(),
                     "Error",
                     JOptionPane.ERROR_MESSAGE);
         }
     }
-
-
-
-
 
 
 }
