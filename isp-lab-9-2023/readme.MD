@@ -53,15 +53,30 @@ Note 2 - For getting financial market information the application use https://fi
 
 ## Exercise 2
 
-Create UML Class diagram and insert it bellow.
-
------ UML CLASS DIAGRAM -------
+![ex2](./docs/ex2.png)
 
 
 ## Exercise 3 (Optional)
 
-Study MVC design pattern and how this can be implemented in Java. Here is a link presenting how MVC pattern can be implemented:
-- https://examples.javacodegeeks.com/core-java/java-swing-mvc-example/ 
+The app can be implemented in Java using the Model-View-Controller (MVC) design pattern. Here's a brief overview of how each component of the app can be implemented using the MVC pattern:
+
+- Model: The Model represents the data and business logic of the app. In this case, the data includes stock market data and user portfolio data. The Model can be implemented using classes such as StockMarketQueryService and UserPortfolio.
+
+- View: The View represents the user interface of the app. In this case, the View can be implemented using classes such as LoginJFrame, StockMarketJFrame, MarketJPanel, PortofolioJPanel, BuyJPanel, and SellJPanel.
+
+- Controller: The Controller acts as an intermediary between the Model and the View. It handles user input and updates the Model and View accordingly. In this case, the Controller can be implemented using event listeners in the View classes, such as the button listener in LoginJFrame and the refresh button listener in MarketJPanel.
+
+To implement the app using the MVC pattern, the following steps can be taken:
+
+Define the Model classes and methods that will retrieve and manipulate the stock market and user portfolio data.
+
+Define the View classes that will display the user interface and handle user input.
+
+Implement the Controller logic in the event listeners of the View classes. The Controller should interact with the Model to retrieve and update data, and update the View to display the changes.
+
+Use a framework such as Java Swing to create the user interface components and bind them to the Model and Controller logic.
+
+By following the MVC pattern, the app can be designed in a way that separates concerns between the data, user interface, and logic, making it easier to maintain and modify in the future.
 
 ## Exercise 4 (Optional)
 
