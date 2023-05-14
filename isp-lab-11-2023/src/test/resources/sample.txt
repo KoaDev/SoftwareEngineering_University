@@ -1,0 +1,3 @@
+Java is a popular programming language.
+Many developers around the world use Java for various applications.
+Java is object-oriented and has a strong ecosystem.
